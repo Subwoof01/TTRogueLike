@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "2od2ei47spPrcAod9I2qL1libDlDeFN/Wqnjw8z4Edw2cH7Q+Faw15RELO3QqJOawvbdscm5pBzlBTtsfq/OhQ==",
+  "success": true,
+  "projectFilePath": "D:\\_Projects\\RogueLike\\3DRogueLike\\3DRogueLike.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jorda\\.nuget\\packages\\gorogue\\3.0.0-alpha04\\gorogue.3.0.0-alpha04.nupkg.sha512",
+    "C:\\Users\\Jorda\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512",
+    "C:\\Users\\Jorda\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Jorda\\.nuget\\packages\\optimizedpriorityqueue\\4.2.0\\optimizedpriorityqueue.4.2.0.nupkg.sha512",
+    "C:\\Users\\Jorda\\.nuget\\packages\\sadconsole\\9.1.1\\sadconsole.9.1.1.nupkg.sha512",
+    "C:\\Users\\Jorda\\.nuget\\packages\\sadconsole.host.monogame\\9.1.1\\sadconsole.host.monogame.9.1.1.nupkg.sha512",
+    "C:\\Users\\Jorda\\.nuget\\packages\\thesadrogue.primitives\\1.0.0\\thesadrogue.primitives.1.0.0.nupkg.sha512",
+    "C:\\Users\\Jorda\\.nuget\\packages\\thesadrogue.primitives.monogame\\1.0.0\\thesadrogue.primitives.monogame.1.0.0.nupkg.sha512",
+    "C:\\Users\\Jorda\\.nuget\\packages\\troschuetz.random\\5.0.1\\troschuetz.random.5.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

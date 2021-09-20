@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>RogueLike</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GoRogue" Version="3.0.0-alpha04" />
+    <PackageReference Include="SadConsole.Host.MonoGame" Version="9.1.1" />
+  </ItemGroup>
+
+</Project>

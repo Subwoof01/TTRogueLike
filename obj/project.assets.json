@@ -1,0 +1,432 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "GoRogue/3.0.0-alpha04": {
+        "type": "package",
+        "dependencies": {
+          "OptimizedPriorityQueue": "4.2.0",
+          "TheSadRogue.Primitives": "1.0.0",
+          "Troschuetz.Random": "5.0.1"
+        },
+        "compile": {
+          "lib/net5.0/GoRogue.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/GoRogue.dll": {}
+        }
+      },
+      "MonoGame.Framework.DesktopGL/3.8.0.1641": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MonoGame.Framework.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonoGame.Framework.dll": {}
+        },
+        "build": {
+          "build/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libSDL2-2.0.so.0": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x64/native/libopenal.so.1": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx/native/libSDL2-2.0.0.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/osx/native/libopenal.1.dylib": {
+            "assetType": "native",
+            "rid": "osx"
+          },
+          "runtimes/win-x64/native/SDL2.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x64/native/soft_oal.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/SDL2.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          },
+          "runtimes/win-x86/native/soft_oal.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "OptimizedPriorityQueue/4.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/Priority Queue.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Priority Queue.dll": {}
+        }
+      },
+      "SadConsole/9.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "TheSadRogue.Primitives": "1.0.0"
+        },
+        "compile": {
+          "lib/net5.0/SadConsole.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/SadConsole.dll": {}
+        }
+      },
+      "SadConsole.Host.MonoGame/9.1.1": {
+        "type": "package",
+        "dependencies": {
+          "MonoGame.Framework.DesktopGL": "3.8.0.1641",
+          "SadConsole": "9.1.1",
+          "TheSadRogue.Primitives": "1.0.0",
+          "TheSadRogue.Primitives.MonoGame": "1.0.0"
+        },
+        "compile": {
+          "lib/net5.0/SadConsole.Host.MonoGame.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/SadConsole.Host.MonoGame.dll": {}
+        }
+      },
+      "TheSadRogue.Primitives/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/TheSadRogue.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/TheSadRogue.Primitives.dll": {}
+        }
+      },
+      "TheSadRogue.Primitives.MonoGame/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "MonoGame.Framework.DesktopGL": "3.8.0.1641",
+          "TheSadRogue.Primitives": "1.0.0"
+        },
+        "compile": {
+          "lib/net5.0/TheSadRogue.Primitives.MonoGame.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/TheSadRogue.Primitives.MonoGame.dll": {}
+        }
+      },
+      "Troschuetz.Random/5.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/Troschuetz.Random.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Troschuetz.Random.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GoRogue/3.0.0-alpha04": {
+      "sha512": "IXamqtkLbweG6qOsZaPcjISV+oFq4wOehvAaJHCswGJ8xHo290lABgL51lbC9BRBc/SDpn4Y7C1BrW4qsfLPIA==",
+      "type": "package",
+      "path": "gorogue/3.0.0-alpha04",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gorogue.3.0.0-alpha04.nupkg.sha512",
+        "gorogue.nuspec",
+        "lib/net5.0/GoRogue.dll",
+        "lib/net5.0/GoRogue.xml",
+        "lib/netcoreapp3.1/GoRogue.dll",
+        "lib/netcoreapp3.1/GoRogue.xml",
+        "lib/netstandard2.1/GoRogue.dll",
+        "lib/netstandard2.1/GoRogue.xml",
+        "readme.txt"
+      ]
+    },
+    "MonoGame.Framework.DesktopGL/3.8.0.1641": {
+      "sha512": "rJQlrlHQbnOECYV6EcQ8GlGRQ2lzPTroXQcyyOZ0ki+BQRSJEN2zVBm9skqLiXya348aGAfTSSGTaSKjAy9NaA==",
+      "type": "package",
+      "path": "monogame.framework.desktopgl/3.8.0.1641",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "build/MonoGame.Framework.DesktopGL.targets",
+        "lib/net452/MonoGame.Framework.dll",
+        "lib/net452/MonoGame.Framework.xml",
+        "lib/netstandard2.0/MonoGame.Framework.dll",
+        "lib/netstandard2.0/MonoGame.Framework.xml",
+        "monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512",
+        "monogame.framework.desktopgl.nuspec",
+        "runtimes/linux-x64/native/libSDL2-2.0.so.0",
+        "runtimes/linux-x64/native/libopenal.so.1",
+        "runtimes/osx/native/libSDL2-2.0.0.dylib",
+        "runtimes/osx/native/libopenal.1.dylib",
+        "runtimes/win-x64/native/SDL2.dll",
+        "runtimes/win-x64/native/soft_oal.dll",
+        "runtimes/win-x86/native/SDL2.dll",
+        "runtimes/win-x86/native/soft_oal.dll"
+      ]
+    },
+    "Newtonsoft.Json/13.0.1": {
+      "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "OptimizedPriorityQueue/4.2.0": {
+      "sha512": "/Sr/OfCFnff7zFe6HoDyWRU8pEvJbOCE9ZjFCSH0EcfETjgvZJ2kUoqlTgVR7cgTPexOGhNATdBKQigqbYn43w==",
+      "type": "package",
+      "path": "optimizedpriorityqueue/4.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/Priority Queue.dll",
+        "lib/net20/Priority Queue.pdb",
+        "lib/net20/Priority Queue.xml",
+        "lib/net35-unity full v3.5/Priority Queue.dll",
+        "lib/net35-unity full v3.5/Priority Queue.pdb",
+        "lib/net35-unity full v3.5/Priority Queue.xml",
+        "lib/net35-unity subset v3.5/Priority Queue.dll",
+        "lib/net35-unity subset v3.5/Priority Queue.pdb",
+        "lib/net35-unity subset v3.5/Priority Queue.xml",
+        "lib/net45/Priority Queue.dll",
+        "lib/net45/Priority Queue.pdb",
+        "lib/net45/Priority Queue.xml",
+        "lib/netstandard1.0/Priority Queue.dll",
+        "lib/netstandard1.0/Priority Queue.pdb",
+        "lib/netstandard1.0/Priority Queue.xml",
+        "lib/portable-net40+sl5+win8+wpa81+wp8/Priority Queue.dll",
+        "lib/portable-net40+sl5+win8+wpa81+wp8/Priority Queue.pdb",
+        "lib/portable-net40+sl5+win8+wpa81+wp8/Priority Queue.xml",
+        "optimizedpriorityqueue.4.2.0.nupkg.sha512",
+        "optimizedpriorityqueue.nuspec"
+      ]
+    },
+    "SadConsole/9.1.1": {
+      "sha512": "H9XUGqU5wRLIQIcSs3okK2hvscR66dsHRHS8ujimJHgwqQQih7+NTejnuPbVaUq0NhcCFrrTXAC39Ih6COzfeA==",
+      "type": "package",
+      "path": "sadconsole/9.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/SadConsole.dll",
+        "lib/net5.0/SadConsole.xml",
+        "lib/netcoreapp3.1/SadConsole.dll",
+        "lib/netcoreapp3.1/SadConsole.xml",
+        "lib/netstandard2.1/SadConsole.dll",
+        "lib/netstandard2.1/SadConsole.xml",
+        "nugeticon.png",
+        "readme.txt",
+        "sadconsole.9.1.1.nupkg.sha512",
+        "sadconsole.nuspec"
+      ]
+    },
+    "SadConsole.Host.MonoGame/9.1.1": {
+      "sha512": "nVWn3p34A22nT87ts9b8Uy+/VQsls6bjxMuv9gwqLHFziPLO8bYpKsFpKtNn0pbMboC7rAjBRjD9Nngtbr3+eQ==",
+      "type": "package",
+      "path": "sadconsole.host.monogame/9.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/SadConsole.Host.MonoGame.dll",
+        "lib/net5.0/SadConsole.Host.MonoGame.xml",
+        "lib/netcoreapp3.1/SadConsole.Host.MonoGame.dll",
+        "lib/netcoreapp3.1/SadConsole.Host.MonoGame.xml",
+        "lib/netstandard2.1/SadConsole.Host.MonoGame.dll",
+        "lib/netstandard2.1/SadConsole.Host.MonoGame.xml",
+        "nugeticon.png",
+        "readme.txt",
+        "sadconsole.host.monogame.9.1.1.nupkg.sha512",
+        "sadconsole.host.monogame.nuspec"
+      ]
+    },
+    "TheSadRogue.Primitives/1.0.0": {
+      "sha512": "EV2spieOQ9HB2wnC4Gc0dO5eNTpmEI79Ea2qRCr38t6V8+yePkTvDN6UdZ49k5XYpkBB2U8ovp98RQ7emwQ8YQ==",
+      "type": "package",
+      "path": "thesadrogue.primitives/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/TheSadRogue.Primitives.dll",
+        "lib/net5.0/TheSadRogue.Primitives.xml",
+        "lib/netcoreapp3.1/TheSadRogue.Primitives.dll",
+        "lib/netcoreapp3.1/TheSadRogue.Primitives.xml",
+        "lib/netstandard2.1/TheSadRogue.Primitives.dll",
+        "lib/netstandard2.1/TheSadRogue.Primitives.xml",
+        "thesadrogue.primitives.1.0.0.nupkg.sha512",
+        "thesadrogue.primitives.nuspec"
+      ]
+    },
+    "TheSadRogue.Primitives.MonoGame/1.0.0": {
+      "sha512": "y4QNwsktSZ0j5dmBaqg9RVeoD9eRewhejFipI82D+HcnAAgSVgNbag5DIUx1B9Xd50u11MpAHM6D2+E2keTGmA==",
+      "type": "package",
+      "path": "thesadrogue.primitives.monogame/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/TheSadRogue.Primitives.MonoGame.dll",
+        "lib/net5.0/TheSadRogue.Primitives.MonoGame.xml",
+        "lib/netcoreapp3.1/TheSadRogue.Primitives.MonoGame.dll",
+        "lib/netcoreapp3.1/TheSadRogue.Primitives.MonoGame.xml",
+        "lib/netstandard2.1/TheSadRogue.Primitives.MonoGame.dll",
+        "lib/netstandard2.1/TheSadRogue.Primitives.MonoGame.xml",
+        "thesadrogue.primitives.monogame.1.0.0.nupkg.sha512",
+        "thesadrogue.primitives.monogame.nuspec"
+      ]
+    },
+    "Troschuetz.Random/5.0.1": {
+      "sha512": "o23z0g0qxk0DzuUu7PovULOsVHphjVXxVyrhedFTUH9ikzD4IJswz/ZSxzhNk652d0aMFocCgwIFu24cp+SM6w==",
+      "type": "package",
+      "path": "troschuetz.random/5.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "icon.png",
+        "lib/net35/Troschuetz.Random.dll",
+        "lib/net35/Troschuetz.Random.pdb",
+        "lib/net35/Troschuetz.Random.xml",
+        "lib/net40/Troschuetz.Random.dll",
+        "lib/net40/Troschuetz.Random.pdb",
+        "lib/net40/Troschuetz.Random.xml",
+        "lib/net45/Troschuetz.Random.dll",
+        "lib/net45/Troschuetz.Random.pdb",
+        "lib/net45/Troschuetz.Random.xml",
+        "lib/net461/Troschuetz.Random.dll",
+        "lib/net461/Troschuetz.Random.pdb",
+        "lib/net461/Troschuetz.Random.xml",
+        "lib/net472/Troschuetz.Random.dll",
+        "lib/net472/Troschuetz.Random.pdb",
+        "lib/net472/Troschuetz.Random.xml",
+        "lib/netstandard1.0/Troschuetz.Random.dll",
+        "lib/netstandard1.0/Troschuetz.Random.pdb",
+        "lib/netstandard1.0/Troschuetz.Random.xml",
+        "lib/netstandard2.0/Troschuetz.Random.dll",
+        "lib/netstandard2.0/Troschuetz.Random.pdb",
+        "lib/netstandard2.0/Troschuetz.Random.xml",
+        "lib/netstandard2.1/Troschuetz.Random.dll",
+        "lib/netstandard2.1/Troschuetz.Random.pdb",
+        "lib/netstandard2.1/Troschuetz.Random.xml",
+        "troschuetz.random.5.0.1.nupkg.sha512",
+        "troschuetz.random.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "GoRogue >= 3.0.0-alpha04",
+      "SadConsole.Host.MonoGame >= 9.1.1"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Jorda\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\_Projects\\RogueLike\\3DRogueLike\\3DRogueLike.csproj",
+      "projectName": "3DRogueLike",
+      "projectPath": "D:\\_Projects\\RogueLike\\3DRogueLike\\3DRogueLike.csproj",
+      "packagesPath": "C:\\Users\\Jorda\\.nuget\\packages\\",
+      "outputPath": "D:\\_Projects\\RogueLike\\3DRogueLike\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Jorda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "dependencies": {
+          "GoRogue": {
+            "target": "Package",
+            "version": "[3.0.0-alpha04, )"
+          },
+          "SadConsole.Host.MonoGame": {
+            "target": "Package",
+            "version": "[9.1.1, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
