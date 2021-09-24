@@ -1,5 +1,6 @@
 ﻿using RogueLike.Actors;
 using RogueLike.Systems.Items;
+using SadConsole.UI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -116,6 +117,7 @@ namespace RogueLike.Systems.Equipment
 
             if (item != null)
             {
+                RogueLike.Player.Inventory.Add(item);
                 // TODO: Add item dropping/going to inventory here.
             }
 

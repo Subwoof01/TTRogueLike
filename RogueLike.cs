@@ -39,6 +39,7 @@ namespace RogueLike
         public static Player Player { get; set; }
         public static AStar AStar { get; private set; }
         public static Dictionary<string, int> LanguageShift { get; private set; }
+        public static Distance Distance { get; private set; }
 
         public static int ScreenWidth = 160;
         public static int ScreenHeight = 50;
@@ -50,6 +51,7 @@ namespace RogueLike
         private Console _playerStatsConsole;
         private ControlsConsole _inventoryConsole;
         private Console _currentShowingConsole;
+        private ControlsConsole _equipmentConsole;
 
         private bool _isPlayerTurn = true;
 
@@ -71,6 +73,7 @@ namespace RogueLike
         private void Init()
         {
             Settings.ResizeMode = Settings.WindowResizeOptions.Fit;
+            Distance = Distance.Euclidean;
 
             // Create root empty screen to add child consoles to.
             RootContainer = new ScreenObject();
@@ -125,6 +128,18 @@ namespace RogueLike
             RootContainer.Children.Add(_inventoryConsole);
             RootContainer.Children.MoveToBottom(_inventoryConsole);
 
+            // Create Equipment console.
+            _equipmentConsole = new ControlsConsole(_mapConsoleWidth, _mapConsoleHeight)
+            {
+                Position = (0, 0),
+                DefaultBackground = Color.Black
+            };
+            _equipmentConsole.Clear();
+            _equipmentConsole.Cursor.PrintAppearanceMatchesHost = false;
+
+            RootContainer.Children.Add(_equipmentConsole);
+            RootContainer.Children.MoveToBottom(_equipmentConsole);
+
             // Create FPS console.
             _fpsConsole = new Console(2, 2)
             {
@@ -135,6 +150,7 @@ namespace RogueLike
             _fpsConsole.Cursor.PrintAppearanceMatchesHost = false;
 
             RootContainer.Children.Add(_fpsConsole);
+            RootContainer.Children.MoveToTop(_fpsConsole);
 
             _currentShowingConsole = RootConsole;
 
@@ -147,7 +163,7 @@ namespace RogueLike
             MonsterFactory = new MonsterFactory();
             MessageLog = new MessageLog(_messageConsole);
             ItemDatabase = new ItemDataBase();
-            ItemManager = new ItemManager(_inventoryConsole);
+            ItemManager = new ItemManager(_inventoryConsole, _equipmentConsole);
 
             ImportLanguages();
 
@@ -156,7 +172,7 @@ namespace RogueLike
 
             // "D:\\_Projects\\RogueLike\\3DRogueLike\\Maps\\TestMap.txt"
 
-            AStar = new AStar(Map.GetWalkability(), Distance.Manhattan);
+            AStar = new AStar(Map.GetWalkability(), Distance);
 
             foreach (Actor a in Map.Actors)
             {
@@ -228,16 +244,17 @@ namespace RogueLike
                 FovRange = 10,
                 HearingRange = 10,
             };
+            Player.Enabled = true;
             Player.Languages.Add("Common", 1);
             Renderer.Add(Player);
             Map.Actors.Add(Player);
             SchedulingSystem.Add(Player);
             Player.Equipment.EquipItemOnActor(ItemDatabase.Get("Battleaxe"));
-            Player.Inventory.Add(ItemDatabase.Get("Battleaxe"));
-            Player.Inventory.Add(ItemDatabase.Get("Battleaxe"));
-            Player.Inventory.Add(ItemDatabase.Get("Battleaxe"));
-            Player.Inventory.Add(ItemDatabase.Get("Shortsword"));
-            Player.Inventory.Add(ItemDatabase.Get("Shortsword"));
+            ItemManager.PickUpItem(Player, ItemDatabase.Get("Battleaxe"));
+            ItemManager.PickUpItem(Player, ItemDatabase.Get("Battleaxe"));
+            ItemManager.PickUpItem(Player, ItemDatabase.Get("Battleaxe"));
+            ItemManager.PickUpItem(Player, ItemDatabase.Get("Shortsword"));
+            ItemManager.PickUpItem(Player, ItemDatabase.Get("Shortsword"));
         }
 
         private void ImportLanguages()
@@ -255,7 +272,7 @@ namespace RogueLike
         private void DrawPlayerStats()
         {
             int defaultX = 3;
-            int x = 3, y = 2;
+            int x = 3, y = 1;
             _playerStatsConsole.Clear();
 
             _playerStatsConsole.Cursor
@@ -475,10 +492,11 @@ namespace RogueLike
                 .Move(x, ++y)
                 .Print($"Speed: {Player.Speed}");
 
-            _playerStatsConsole.DrawBox(
-                    new Rectangle(0, 0, _playerStatsConsole.Width, _playerStatsConsole.Height),
-                    ShapeParameters.CreateBorder(new ColoredGlyph(Color.DarkSlateGray, Color.DarkSlateGray))
-                );
+            //_playerStatsConsole.DrawBox(
+            //        new Rectangle(0, -1, _playerStatsConsole.Width + 1, _playerStatsConsole.Height + 1),
+            //        ShapeParameters.CreateBorder(new ColoredGlyph(Color.DarkSlateGray, Color.DarkSlateGray))
+            //    );
+            _playerStatsConsole.DrawLine((0, 0), (0, _playerStatsConsole.Height), ' ', null, Color.DarkSlateGray);
         }
 
         private void TakeNPCTurns()
@@ -495,14 +513,18 @@ namespace RogueLike
                 Monster monster = scheduleable as Monster;
                 if (monster != null)
                 {
-                    if (Distance.Chebyshev.Calculate(monster.Position, Player.Position) > monster.FovRange)
+                    if (monster.Enabled)
                     {
-                        SchedulingSystem.Add(scheduleable);
-                        return;
+                        if (Distance.Chebyshev.Calculate(monster.Position, Player.Position) > monster.FovRange)
+                        {
+                            SchedulingSystem.Add(scheduleable);
+                            TakeNPCTurns();
+                            return;
+                        }
+                        Action action = (scheduleable as Monster).TakeTurn();
+                        if (action != null)
+                            action.Perform();
                     }
-                    Action action = (scheduleable as Monster).TakeTurn();
-                    if (action != null)
-                        action.Perform();
                     SchedulingSystem.Add(scheduleable);
                 }
 
@@ -531,10 +553,42 @@ namespace RogueLike
                 }
 
             }
+            if (keyboard.IsKeyPressed(Keys.E))
+            {
+                if (_currentShowingConsole != _equipmentConsole)
+                {
+                    RootContainer.Children.MoveToTop(_equipmentConsole);
+                    
+                    _currentShowingConsole = _equipmentConsole;
+                }
+                else
+                {
+                    RootContainer.Children.MoveToTop(RootConsole);
+                    _currentShowingConsole = RootConsole;
+                }
+            }
+            if (keyboard.IsKeyPressed(Keys.D))
+            {
+                if (_currentShowingConsole == _inventoryConsole)
+                {
+                    ItemManager.DropItem(Player, ItemManager.GetCurrentlySelectedItem());
+                }
+                else
+                {
+                    ItemManager.PickUpItem(Player, Map.Tiles[Player.Position.X, Player.Position.Y].Items[0]);
+                }
+            }
+            
             if (keyboard.IsKeyPressed(Keys.F5))
                 Game.Instance.ToggleFullScreen();
             if (keyboard.IsKeyPressed(Keys.Escape))
-                Environment.Exit(0);
+            {
+                if (_currentShowingConsole != RootConsole)
+                {
+                    RootContainer.Children.MoveToTop(RootConsole);
+                    _currentShowingConsole = RootConsole;
+                }
+            }
             if (keyboard.IsKeyPressed(Keys.F6))
             {
                 foreach (Tile tile in Map.Tiles)

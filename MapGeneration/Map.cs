@@ -33,15 +33,16 @@ namespace RogueLike.MapGeneration
         {
             _generator.ConfigAndGenerateSafe(gen =>
             {
-                gen.AddSteps(DefaultAlgorithms.DungeonMazeMapSteps());
+                gen.AddSteps(DefaultAlgorithms.CellularAutomataGenerationSteps());
             });
 
             PlaceFloorsAndWalls();
-            PlaceDoors();
-            List<Rectangle> rooms = GetRooms();
-            PlaceBars(rooms);
-            PlacePlayerInRoom(rooms[0]);
-            PlaceMonsters(rooms);
+            //PlaceDoors();
+            //List<Rectangle> rooms = GetRooms();
+            //PlaceBars(rooms);
+            //PlacePlayerInRoom(rooms[0]);
+            //PlaceMonsters(rooms);
+            PlacePlayerRandomly();
         }
 
         public void Generate(string filePath)
@@ -139,22 +140,6 @@ namespace RogueLike.MapGeneration
                 int amountOfMonsters = Dice.Roll("5d20") / 20;
                 for (int i = 0; i < amountOfMonsters; i++)
                 {
-                    //Monster monster = new Monster(Color.Orange, Color.Black, 'k', 2)
-                    //{
-                    //    Name = "Kobold",
-                    //    Position = GetRandomWalkablePointInRoom(space),
-                    //    ArmourClass = Dice.Roll("1d12"),
-                    //    Speed = 15,
-                    //    FovRange = 8
-                    //};
-                    //monster.Breed = new Breed();
-
-                    //monster.Level = Dice.Roll("1d4");
-                    //monster.MaxHealth = Dice.Roll($"{monster.Level}d8");
-                    //monster.Health = monster.MaxHealth;
-                    //monster.Breed.Flags.Add("Dragonkin");
-                    //monster.Breed.Flags.Add("Humanoid");
-
                     Monster monster = RogueLike.MonsterFactory.Get("Kobold");
                     monster.Position = GetRandomWalkablePointInRoom(space);
                     Actors.Add(monster);
@@ -169,6 +154,27 @@ namespace RogueLike.MapGeneration
             if (RogueLike.Player == null)
                 RogueLike.CreatePlayer();
             RogueLike.Player.Position = GetRandomWalkablePointInRoom(room);
+            RogueLike.RootConsole.ViewPosition = ((int)(RogueLike.Player.Position.X - RogueLike.RootConsole.ViewWidth * 0.5), (int)(RogueLike.Player.Position.Y - RogueLike.RootConsole.ViewHeight * 0.5));
+            Actors.Add(RogueLike.Player);
+        }
+
+        private void PlacePlayerRandomly()
+        {
+            if (RogueLike.Player == null)
+                RogueLike.CreatePlayer();
+
+            Point? p = null;
+
+            while (p == null)
+            {
+                int x = Dice.Roll($"1d{Tiles.GetLength(0)}");
+                int y = Dice.Roll($"1d{Tiles.GetLength(1)}");
+
+                if (Tiles[x, y].IsWalkable)
+                    p = Tiles[x, y].Position;
+            }
+
+            RogueLike.Player.Position = (Point)p;
             RogueLike.RootConsole.ViewPosition = ((int)(RogueLike.Player.Position.X - RogueLike.RootConsole.ViewWidth * 0.5), (int)(RogueLike.Player.Position.Y - RogueLike.RootConsole.ViewHeight * 0.5));
             Actors.Add(RogueLike.Player);
         }

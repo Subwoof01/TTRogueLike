@@ -62,6 +62,7 @@ namespace RogueLike.Systems
         {
             KeyValuePair<int, List<IScheduleable>> firstScheduleableGroup = _scheduleables.First();
             IScheduleable firstScheduleable = firstScheduleableGroup.Value.First();
+
             Remove(firstScheduleable);
             _time = firstScheduleableGroup.Key;
             return firstScheduleable;

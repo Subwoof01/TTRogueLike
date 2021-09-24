@@ -19,7 +19,8 @@ namespace RogueLike.Actions
 
             RogueLike.Map.SetCellTransparancy(_door.Position, true);
             RogueLike.Map.SetCellWalkability(_door.Position, true);
-            _door.Appearance.GlyphCharacter = '-';
+            _door.DefaultAppearance.GlyphCharacter = '-';
+            _door.UpdateAppearance();
             return true;
         }
 

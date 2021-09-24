@@ -28,6 +28,7 @@ namespace RogueLike.Systems
             _console.Children.Add(_scrollConsole);
 
             _scrollConsole.Position = (0, 1);
+            DrawConsoleSeparator();
         }
 
         public void Print(string message, Color? colour = null)

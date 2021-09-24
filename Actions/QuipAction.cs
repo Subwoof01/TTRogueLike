@@ -28,7 +28,7 @@ namespace RogueLike.Actions
 
         public override bool Perform()
         {
-            if (Distance.Manhattan.Calculate(_quipper.Position, RogueLike.Player.Position) > RogueLike.Player.HearingRange)
+            if (RogueLike.Distance.Calculate(_quipper.Position, RogueLike.Player.Position) > RogueLike.Player.HearingRange)
                 return false;
 
             if (Dice.Roll("1d100") >= _chance)

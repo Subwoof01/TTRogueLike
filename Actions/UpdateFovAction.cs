@@ -21,14 +21,14 @@ namespace RogueLike.Actions
 
             if (_pointOfViewActor is Monster)
             {
-                if (Distance.Manhattan.Calculate(_pointOfViewActor.Position, RogueLike.Player.Position) > _pointOfViewActor.FovRange)
+                if (RogueLike.Distance.Calculate(_pointOfViewActor.Position, RogueLike.Player.Position) > _pointOfViewActor.FovRange)
                     return false;
             }
 
             if (_x > 0 && _y > 0)
-                _pointOfViewActor.Fov.Calculate(new Point(_x, _y), _pointOfViewActor.FovRange, Distance.Manhattan);
+                _pointOfViewActor.Fov.Calculate(new Point(_x, _y), _pointOfViewActor.FovRange, RogueLike.Distance);
             else
-                _pointOfViewActor.Fov.Calculate(_pointOfViewActor.Position, _pointOfViewActor.FovRange, Distance.Manhattan);
+                _pointOfViewActor.Fov.Calculate(_pointOfViewActor.Position, _pointOfViewActor.FovRange, RogueLike.Distance);
 
             if (_pointOfViewActor is Monster)
             {

@@ -1,4 +1,5 @@
-﻿using SadConsole;
+﻿using RogueLike.Systems.Items;
+using SadConsole;
 using SadConsole.Entities;
 using SadRogue.Primitives;
 using System;
@@ -14,6 +15,7 @@ namespace RogueLike.Tiles
         public bool IsWalkable { get; set; }
         public bool IsTransparent { get; set; }
         public List<string> Flags;
+        public List<Item> Items;
 
         public ColoredGlyph CurrentlySeenAppearance;
         public ColoredGlyph ExploredAppearance;
@@ -21,7 +23,7 @@ namespace RogueLike.Tiles
 
         private bool _isExplored;
         public bool IsExplored 
-        { 
+        {
             get
             {
                 return _isExplored;
@@ -46,14 +48,19 @@ namespace RogueLike.Tiles
             }
         }
 
-        private void UpdateAppearance()
+        public void UpdateAppearance()
         {
             if (CurrentlySeen)
-                Appearance = new ColoredGlyph(CurrentlySeenAppearance.Foreground, CurrentlySeenAppearance.Background, Appearance.Glyph);
+            {
+                if (Items.Count > 0)
+                    Appearance = Items[0].Appearance;
+                else
+                    Appearance = new ColoredGlyph(CurrentlySeenAppearance.Foreground, CurrentlySeenAppearance.Background, DefaultAppearance.Glyph);
+            }
             else if (IsExplored)
-                Appearance = new ColoredGlyph(ExploredAppearance.Foreground, ExploredAppearance.Background, Appearance.Glyph);
+                Appearance = new ColoredGlyph(ExploredAppearance.Foreground, ExploredAppearance.Background, DefaultAppearance.Glyph);
             else
-                Appearance = new ColoredGlyph(Color.Black, Color.Black, Appearance.Glyph);
+                Appearance = new ColoredGlyph(Color.Black, Color.Black, DefaultAppearance.Glyph);
         }
 
         private void SetupAppearances(ColoredGlyph appearance)
@@ -75,6 +82,7 @@ namespace RogueLike.Tiles
             DefaultAppearance = appearance;
             SetupAppearances(appearance);
             Flags = new List<string>();
+            Items = new List<Item>();
         }
 
         public Tile(ColoredGlyph appearance, int zIndex) : base(appearance, zIndex)
@@ -82,6 +90,7 @@ namespace RogueLike.Tiles
             DefaultAppearance = appearance;
             SetupAppearances(appearance);
             Flags = new List<string>();
+            Items = new List<Item>();
         }
 
         public Tile(Color foreground, Color background, int glyph, int zIndex) : base(foreground, background, glyph, zIndex)
@@ -89,6 +98,7 @@ namespace RogueLike.Tiles
             DefaultAppearance = new ColoredGlyph(foreground, background, glyph);
             SetupAppearances(new ColoredGlyph(foreground, background, glyph));
             Flags = new List<string>();
+            Items = new List<Item>();
         }
     }
 }

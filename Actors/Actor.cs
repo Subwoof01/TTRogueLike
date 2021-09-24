@@ -157,6 +157,7 @@ namespace RogueLike.Actors
         public RecursiveShadowcastingFOV Fov { get; set; }
         public int FovRange { get; set; }
         public int HearingRange { get; set; }
+        public bool Enabled { get; set; }
 
         public Actor(ref ColoredGlyph appearance, int zIndex) : base(ref appearance, zIndex)
         {
@@ -237,6 +238,8 @@ namespace RogueLike.Actors
             Fov = new RecursiveShadowcastingFOV(RogueLike.Map.GetTransparency());
             Languages = new Dictionary<string, int>();
             Inventory = new List<Item>();
+
+            Appearance.Background = new Color(Appearance.Background.R, Appearance.Background.G, Appearance.Background.B, (byte)200);
         }
 
         public abstract Action TakeTurn();
