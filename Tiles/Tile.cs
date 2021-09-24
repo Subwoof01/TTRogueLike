@@ -17,6 +17,7 @@ namespace RogueLike.Tiles
 
         public ColoredGlyph CurrentlySeenAppearance;
         public ColoredGlyph ExploredAppearance;
+        public ColoredGlyph DefaultAppearance;
 
         private bool _isExplored;
         public bool IsExplored 
@@ -57,7 +58,7 @@ namespace RogueLike.Tiles
 
         private void SetupAppearances(ColoredGlyph appearance)
         {
-            CurrentlySeenAppearance = appearance;
+            //CurrentlySeenAppearance = appearance;
 
             int fRed = (int)(appearance.Foreground.R * 0.1);
             int fGreen = (int)(appearance.Foreground.G * 0.1);
@@ -71,18 +72,21 @@ namespace RogueLike.Tiles
 
         public Tile(ref ColoredGlyph appearance, int zIndex) : base(ref appearance, zIndex)
         {
+            DefaultAppearance = appearance;
             SetupAppearances(appearance);
             Flags = new List<string>();
         }
 
         public Tile(ColoredGlyph appearance, int zIndex) : base(appearance, zIndex)
         {
+            DefaultAppearance = appearance;
             SetupAppearances(appearance);
             Flags = new List<string>();
         }
 
         public Tile(Color foreground, Color background, int glyph, int zIndex) : base(foreground, background, glyph, zIndex)
         {
+            DefaultAppearance = new ColoredGlyph(foreground, background, glyph);
             SetupAppearances(new ColoredGlyph(foreground, background, glyph));
             Flags = new List<string>();
         }

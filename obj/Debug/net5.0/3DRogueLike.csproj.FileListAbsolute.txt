@@ -32,3 +32,9 @@ D:\_Projects\RogueLike\3DRogueLike\obj\Debug\net5.0\3DRogueLike.genruntimeconfig
 D:\_Projects\RogueLike\3DRogueLike\bin\Debug\net5.0\GoRogue.dll
 D:\_Projects\RogueLike\3DRogueLike\bin\Debug\net5.0\Priority Queue.dll
 D:\_Projects\RogueLike\3DRogueLike\bin\Debug\net5.0\Troschuetz.Random.dll
+D:\_Projects\RogueLike\3DRogueLike\bin\Debug\net5.0\Data\ExperienceRewards.txt
+D:\_Projects\RogueLike\3DRogueLike\bin\Debug\net5.0\Data\ExperienceValues.txt
+D:\_Projects\RogueLike\3DRogueLike\bin\Debug\net5.0\Data\Monsters\Kobold.xml
+D:\_Projects\RogueLike\3DRogueLike\bin\Debug\net5.0\Data\Languages.txt
+D:\_Projects\RogueLike\3DRogueLike\bin\Debug\net5.0\Data\Items\Items.xml
+D:\_Projects\RogueLike\3DRogueLike\bin\Debug\net5.0\Data\Items\ActiveItems.txt

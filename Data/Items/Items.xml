@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Items>
+  <Shortsword>
+    <Glyph>s</Glyph>
+    <ForegroundColour>
+      <R>200</R>
+      <G>200</G>
+      <B>200</B>
+    </ForegroundColour>
+    <BackgroundColour>
+      <R>0</R>
+      <G>0</G>
+      <B>0</B>
+    </BackgroundColour>
+    <Slot>Hand</Slot>
+    <SlotsRequired>1</SlotsRequired>
+    <Attack>
+      <Bonus>1</Bonus>
+      <Dice>1d6</Dice>
+      <Types>
+        <Physical>Slashing</Physical>
+      </Types>
+    </Attack>
+  </Shortsword>
+  <Battleaxe>
+    <Glyph>b</Glyph>
+    <ForegroundColour>
+      <R>200</R>
+      <G>200</G>
+      <B>200</B>
+    </ForegroundColour>
+    <BackgroundColour>
+      <R>0</R>
+      <G>0</G>
+      <B>0</B>
+    </BackgroundColour>
+    <Slot>Hand</Slot>
+    <SlotsRequired>2</SlotsRequired>
+    <Attack>
+      <Bonus>1</Bonus>
+      <Dice>1d12</Dice>
+      <Types>
+        <Physical>Slashing</Physical>
+      </Types>
+    </Attack>
+  </Battleaxe>
+</Items>

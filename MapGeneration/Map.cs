@@ -2,6 +2,7 @@
 using GoRogue.MapGeneration;
 using GoRogue.MapGeneration.ContextComponents;
 using RogueLike.Actors;
+using RogueLike.Systems.Items;
 using RogueLike.Tiles;
 using SadConsole.Entities;
 using SadRogue.Primitives;
@@ -26,6 +27,7 @@ namespace RogueLike.MapGeneration
         public Tile[,] Tiles { get; private set; }
 
         public List<Actor> Actors { get; private set; }
+        public List<Item> Items { get; private set; }
 
         public void Generate()
         {
@@ -137,22 +139,24 @@ namespace RogueLike.MapGeneration
                 int amountOfMonsters = Dice.Roll("5d20") / 20;
                 for (int i = 0; i < amountOfMonsters; i++)
                 {
-                    // Create a factory for this? Maybe reading from xml files?
-                    Monster monster = new Monster(Color.Orange, Color.Black, 'k', 2)
-                    {
-                        Name = "Kobold",
-                        Position = GetRandomWalkablePointInRoom(space),
-                        ArmourClass = Dice.Roll("1d12"),
-                        Speed = 15,
-                        FovRange = 8
-                    };
-                    monster.Breed = new Breed();
+                    //Monster monster = new Monster(Color.Orange, Color.Black, 'k', 2)
+                    //{
+                    //    Name = "Kobold",
+                    //    Position = GetRandomWalkablePointInRoom(space),
+                    //    ArmourClass = Dice.Roll("1d12"),
+                    //    Speed = 15,
+                    //    FovRange = 8
+                    //};
+                    //monster.Breed = new Breed();
 
-                    monster.Level = Dice.Roll("1d4");
-                    monster.MaxHealth = Dice.Roll($"{monster.Level}d8");
-                    monster.Health = monster.MaxHealth;
-                    monster.Breed.Flags.Add("Dragonkin");
-                    monster.Breed.Flags.Add("Humanoid");
+                    //monster.Level = Dice.Roll("1d4");
+                    //monster.MaxHealth = Dice.Roll($"{monster.Level}d8");
+                    //monster.Health = monster.MaxHealth;
+                    //monster.Breed.Flags.Add("Dragonkin");
+                    //monster.Breed.Flags.Add("Humanoid");
+
+                    Monster monster = RogueLike.MonsterFactory.Get("Kobold");
+                    monster.Position = GetRandomWalkablePointInRoom(space);
                     Actors.Add(monster);
                     RogueLike.Renderer.Add(monster);
                     RogueLike.SchedulingSystem.Add(monster);
@@ -165,6 +169,7 @@ namespace RogueLike.MapGeneration
             if (RogueLike.Player == null)
                 RogueLike.CreatePlayer();
             RogueLike.Player.Position = GetRandomWalkablePointInRoom(room);
+            RogueLike.RootConsole.ViewPosition = ((int)(RogueLike.Player.Position.X - RogueLike.RootConsole.ViewWidth * 0.5), (int)(RogueLike.Player.Position.Y - RogueLike.RootConsole.ViewHeight * 0.5));
             Actors.Add(RogueLike.Player);
         }
 
@@ -172,7 +177,7 @@ namespace RogueLike.MapGeneration
         {
             List<Point> points = new List<Point>();
             foreach (Point p in room.Positions())
-                if (Tiles[p.X, p.Y].IsWalkable)
+                if (Tiles[p.X, p.Y].IsWalkable && !Actors.Any(a => a.Position == p))
                     points.Add(p);
 
             return points[Dice.Roll($"1d{points.Count}") - 1];
@@ -232,6 +237,7 @@ namespace RogueLike.MapGeneration
             _generator = new Generator(width, height);
             Tiles = new Tile[width, height];
             Actors = new List<Actor>();
+            Items = new List<Item>();
             Width = width;
             Height = height;
         }

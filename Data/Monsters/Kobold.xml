@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Monster>
+  <Name>Kobold</Name>
+  <Glyph>k</Glyph>
+  <ForegroundColour>
+    <R>255</R>
+    <G>132</G>
+    <B>0</B>
+  </ForegroundColour>
+  <BackgroundColour>
+    <R>0</R>
+    <G>0</G>
+    <B>0</B>
+  </BackgroundColour>
+  <Level>0.25</Level>
+  <MaxHealth>
+    <Head>5</Head>
+    <Neck>3</Neck>
+    <Chest>5</Chest>
+    <Arm>3</Arm>
+    <Hand>3</Hand>
+    <Leg>3</Leg>
+    <Foot>3</Foot>
+  </MaxHealth>
+  <AC>10</AC>
+  <Speed>1</Speed>
+  <FovRange>10</FovRange>
+  <Stats>
+    <Str>9</Str>
+    <Dex>13</Dex>
+    <Con>10</Con>
+    <Int>10</Int>
+    <Wis>9</Wis>
+    <Cha>8</Cha>
+  </Stats>
+  <Flags>
+    <Flag>Dragonkin</Flag>
+    <Flag>Humanoid</Flag>
+  </Flags>
+  <Languages>
+    <Language weight="1">Common</Language>
+    <Language weight="10">Draconic</Language>
+  </Languages>
+  <Quips>
+    <Quip type="Taunt">You weak!</Quip>
+    <Quip type="Taunt">Me laugh at puny you!</Quip>
+    <Quip type="Taunt">You lookballs worse than rat.</Quip>
+    <Quip type ="Engage">Me stick you!</Quip>
+    <Quip type ="Engage">Me put you filthy head on stick!</Quip>
+    <Quip type ="Engage">No take candle!</Quip>
+    <Quip type="Flee">Too strong! Too strong!</Quip>
+    <Quip type="Flee">You scary! Me flee!</Quip>
+    <Quip type="Flee">You ugly! Me run from you!</Quip>
+    <Quip type="Idle">Rat taste good...</Quip>
+    <Quip type="Idle">Hmmm... Candle...</Quip>
+    <Quip type="Idle">Other Kobold weak, me strong...</Quip>
+    <Quip type="Bloodied">Me no hurt, you hurt!</Quip>
+    <Quip type="Bloodied">Me must fight! Protect candle!</Quip>
+    <Quip type="Bloodied">Me strong! Me think...</Quip>
+  </Quips>
+  <NaturalAttacks>
+    <Claw amount ="2">
+      <Slot>Hand</Slot>
+      <AttackBonus>1</AttackBonus>
+      <DamageDice>1d4</DamageDice>
+      <Range>1</Range>
+    </Claw>
+  </NaturalAttacks>
+  <Equipment>
+    
+  </Equipment>
+  <Drops>
+    
+  </Drops>
+</Monster>

@@ -33,11 +33,8 @@ namespace RogueLike.Actions
 
             if (targetActor != null)
             {
-                if (_actor is Monster)
-                    return false;
-
-                new MeleeAttackAction(_actor, targetActor).Perform();
-                return true;
+                new AttackAction(_actor, targetActor).Perform();
+                return false;
             }
 
             if (targetTile.Flags.Any(s => s == "Door"))
@@ -55,6 +52,7 @@ namespace RogueLike.Actions
                 }
                 else
                 {
+                    RogueLike.RootConsole.ViewPosition = ((int)(RogueLike.Player.Position.X - RogueLike.RootConsole.ViewWidth * 0.5), (int)(RogueLike.Player.Position.Y - RogueLike.RootConsole.ViewHeight * 0.5));
                     new UpdateFovAction(_actor).Perform();
                 }
 

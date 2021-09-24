@@ -45,6 +45,8 @@ namespace RogueLike.Actors
                 return new MoveAction(this, Direction.Left);
             if (keyboard.IsKeyPressed(Keys.Right))
                 return new MoveAction(this, Direction.Right);
+            if (keyboard.IsKeyPressed(Keys.P))
+                return new PeakAction(this);
 
             return null;
         }

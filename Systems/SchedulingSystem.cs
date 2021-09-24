@@ -84,5 +84,10 @@ namespace RogueLike.Systems
             _time = 0;
             _scheduleables.Clear();
         }
+
+        public int Count()
+        {
+            return _scheduleables.Count;
+        }
     }
 }
